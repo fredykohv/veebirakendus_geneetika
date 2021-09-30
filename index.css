@@ -16,6 +16,14 @@ body
 	background-size: cover;
 }
 
+img
+{
+    width: 50%;
+    height: auto;
+    left: 30%;
+    position: absolute;
+}
+
 .male
 {
     top: 25vh;
@@ -48,6 +56,7 @@ body
 {
     font: 500 1rem 'Quicksand', sans-serif;
     top: 45vh;
+    left: 33%;
     position: absolute;
 }
 
@@ -55,13 +64,43 @@ body
 {
     font: 500 1rem 'Quicksand', sans-serif;
     top: 45vh;
+    left: 33%;
     position: absolute;
 }
 
-img
+.results
 {
-    width: 50%;
-    height: auto;
-    left: 100px;
+    left: 92vh;
+    top: 80vh;
+    position: absolute;
+}
+
+.homepage
+{
+    left: 92vh;
+    top: 80vh;
+    position: absolute;
+}
+
+.db
+{
+    top: 25%;
+	left: 35%;
+	height: 50vh;
+    width: 50vh;
+    padding: 2rem;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    background: #ffffff;
+    position: absolute;
+}
+
+.logo
+{
+    top: 6%;
+	left: 38%;
+	height: 35vh;
+    width: 35vh;
+    padding: 2rem;
     position: absolute;
 }
