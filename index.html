@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<title>Homepage</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+
+<body onload="setup()">
+	<div class="male">
+		<img src="assets/pngaaa.com-1350771.png" alt="male_sign"
+			width="200px"
+			height="200px">
+
+		<div class="file_upload_male">
+			<input type="file" id="upload_male_id" name="fileupload" style="display: none" onChange="Handlechange();"/>
+			<input type="hidden" id="filename" readonly="true"/>
+			<button type="button" value="Upload DNA" id="fakeBrowse" onclick="handle_browse_click();" class="btn btn-success">Upload DNA</button>
+		</div>
+	</div>
+	<div class="female">
+		<img src="assets/pngaaa.com-1350791.png" alt="femal_sign"
+			width="180px"
+			height="200px">
+
+		<div class="file_upload_female">
+			<input type="file" id="upload_female_id" name="fileupload" style="display: none" onChange="Handlechange();"/>
+			<input type="hidden" id="filename" readonly="true"/>
+			<button type="button" value="Upload DNA" id="fakeBrowse" onclick="handle_browse_click();" class="btn btn-success">Upload DNA</button>
+		</div>
+	</div>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="index.js"></script>
+</body>
