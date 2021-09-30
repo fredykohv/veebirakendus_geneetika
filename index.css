@@ -16,6 +16,14 @@ body
 	background-size: cover;
 }
 
+img
+{
+    width: 50%;
+    height: auto;
+    left: 30%;
+    position: absolute;
+}
+
 .male
 {
     top: 25vh;
@@ -48,6 +56,7 @@ body
 {
     font: 500 1rem 'Quicksand', sans-serif;
     top: 45vh;
+    left: 33%;
     position: absolute;
 }
 
@@ -55,13 +64,13 @@ body
 {
     font: 500 1rem 'Quicksand', sans-serif;
     top: 45vh;
+    left: 33%;
     position: absolute;
 }
 
-img
+.try_me
 {
-    width: 50%;
-    height: auto;
-    left: 100px;
+    left: 92vh;
+    top: 80vh;
     position: absolute;
 }
