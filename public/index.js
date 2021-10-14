@@ -2,6 +2,11 @@ function handle_browse_click_male()
 {
 	var fileinput = document.getElementById("upload_male_id");
 	fileinput.click();
+
+	fileinput.addEventListener('change', (event) => {
+		const fileList = event.target.files;
+		console.log(fileList);
+	  });
 }
 
 function handle_change()
