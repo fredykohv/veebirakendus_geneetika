@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p id="demo"></p>
+    
+    <p id="demo2"></p>
+    <p id="demo3">Nah</p>
+    <p id="demo4">Nah</p>
+    
+    <script src="index.js"></script>
+
+    <script>
+        const cars = ["Saab", "Volvo", "BMW"];
+        document.getElementById("demo").innerHTML = cars;
+        const cars2 = ["Saab", "Volvo", "BMW"];
+        document.getElementById("demo2").innerHTML = cars2;
+
+        var gene_description = { "lmao69": {"alleles": {"TA": "veits gey", "AA": "norm vend"}, "topic": "hair"}, "chungus2": {"alleles": {"GG": "gamer 100"}, "topic": "skin"}, "bingo420": {"alleles": {"AG": "karvane"}, "topic": "legs"}}; // from database
+        // var db_genes = { "lmao69": { "AT": "suur", "CG": "väike" }, "bingo420":{"GG":2}, "og777": {"GC": 7}, "chungus2": {"AG": 40}};
+        var mommy = { "lmao69": "TA", "chungus2": "CG", "bingo420":"AG"};
+        var daddy = { "lmao69": "AT", "chungus2": "CG", "og777":"TC"};
+        
+        var relevant_stuff = { "lmao69": { "AT": 0.25, "CG": 0.75 } }; // common genes in daddy, mommy and db; with respective allele likelihoods
+        var dna_dict = { "12": "dumass" }
+        
+        
+        document.getElementById("demo").innerHTML = dict_to_list(mommy);
+        var result = remove_uncommon_genes(mommy, daddy, gene_description);
+        mommy = result[0];
+        daddy = result[1];
+        gene_description = result[2];
+
+        var tmp = {"jaan": 40};
+        var new_ = {"as": 2};
+        tmp = new_;
+        replace_dict(tmp);
+        
+        document.getElementById("demo2").innerHTML = dict_to_list(mommy);
+        // document.getElementById("demo3").innerHTML = same_allele("AT", "TG");
+        const child = generate_child(mommy, daddy);
+        document.getElementById("demo3").innerHTML = dict_of_dict_to_list(child);
+        const child_description = likelihood_and_description(child, gene_description);
+        document.getElementById("demo4").innerHTML = child_description["hair"];
+        // document.getElementById("demo3").innerHTML = Object.keys(tmp);
+    </script>
+
+</body>
+
+</html>

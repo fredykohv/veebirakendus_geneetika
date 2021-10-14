@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -9,6 +10,8 @@
 </head>
 
 <body>
+    <p id="demoxd"></p>
+
 	<div class="male">
 		<img src="assets/pngaaa.com-1350771.png" alt="male_sign"
 			width="200px"
@@ -43,13 +46,28 @@
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        var tmp = {"jaan": 40};
+        var new_ = {"as": 2};
+        tmp = new_;
+        replace_dict(tmp);
+        
+        document.getElementById("demo2").innerHTML = dict_to_list(mommy);
+        // document.getElementById("demo3").innerHTML = same_allele("AT", "TG");
+        const child = generate_child(mommy, daddy);
+        document.getElementById("demo3").innerHTML = dict_of_dict_to_list(child);
+        const child_description = likelihood_and_description(child, gene_description);
+        document.getElementById("demo4").innerHTML = child_description["hair"];
+        // document.getElementById("demo3").innerHTML = Object.keys(tmp);
+    </script>
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 	<script type="module">
+        var gene_yes = {};
+        // var gene_data_yes = {};
+        var gene_description = {};
+
 		//import * as fb_app from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
 		//import * as fb_db from 'https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js';
 
@@ -65,7 +83,7 @@
 			messagingSenderId: "979940081112",
 			appId: "1:979940081112:web:abbc073ff33da252d406ad"
 		};
-
+        
 		// Initialize Firebase
 		const app = initializeApp(firebaseConfig);
 		const db = getDatabase();
@@ -139,32 +157,85 @@
 
 		// insert_data();
 
-		function select_data()
-		{
-			const dbref = ref(db);
+        const dbref = ref(db);
+        
+        var gene_data_yes = {};
+        var dong = {"kartul": 24};
+        var dog = "mjäu";
+        function get_one_gene_dict(index, dbref)
+        {
+            get(child(dbref, index.toString())).then((snapshot) =>
+            {
+                let rsid_gen = snapshot.val().rsid;
+                // gene_yes["rsid"] = rsid_gen;
+                // console.log(gene_yes["rsid"]);
 
-			get(child(dbref, "0")).then((snapshot) =>
-			{
-				let aa_gen = snapshot.val().AA;
-				let ag_gen = snapshot.val().AG;
-				let at_gen = snapshot.val().AT;
-				let cc_gen = snapshot.val().CC;
-				let cg_gen = snapshot.val().CG;
-				let ct_gen = snapshot.val().CT;
-				let gg_gen = snapshot.val().GG;
-				let gt_gen = snapshot.val().GT;
-				let tt_gen = snapshot.val().TT;
-				let description_gen = snapshot.val().description;
-				let rsid_gen = snapshot.val().rsid;
-				let topic_gen = snapshot.val().topic;
+                let topic_gen = snapshot.val().topic;
+                // gene[rsid_gen] = {"alleles": {}, "topic": topic};
+                gene_description[snapshot.val().rsid] = {"alleles": {}, "topic": snapshot.val().topic};
+                
+                dog = "ahhh";
+                
+                let aa_gen = snapshot.val().AA;
+                if (aa_gen !== '') gene_description[snapshot.val().rsid]["alleles"]["AA"] = snapshot.val().AA;
+                let ag_gen = snapshot.val().AG;
+                if (ag_gen !== '') gene_description[snapshot.val().rsid]["alleles"]["AG"] = snapshot.val().AG;
+                let at_gen = snapshot.val().AT;
+                if (at_gen !== '') gene_description[snapshot.val().rsid]["alleles"]["AT"] = snapshot.val().AT;
+                let cc_gen = snapshot.val().CC;
+                if (cc_gen !== '') gene_description[snapshot.val().rsid]["alleles"]["CC"] = snapshot.val().CC;
+                let cg_gen = snapshot.val().CG;
+                if (cg_gen !== '') gene_description[snapshot.val().rsid]["alleles"]["CG"] = snapshot.val().CG;
+                let ct_gen = snapshot.val().CT;
+                if (ct_gen !== '') gene_description[snapshot.val().rsid]["alleles"]["CT"] = snapshot.val().CT;
+                let gg_gen = snapshot.val().GG;
+                if (gg_gen !== '') gene_description[snapshot.val().rsid]["alleles"]["GG"] = snapshot.val().GG;
+                let gt_gen = snapshot.val().GT;
+                if (gt_gen !== '') gene_description[snapshot.val().rsid]["alleles"]["GT"] = snapshot.val().GT;
+                let tt_gen = snapshot.val().TT;
+                if (tt_gen !== '') gene_description[snapshot.val().rsid]["alleles"]["TT"] = snapshot.val().TT;
+                dong["ok"] = dog;
+                // let description_gen = snapshot.val().description;
+                // console.log(gene_yes["rsid"]);
+                // gene_description[rsid_gen] = gene_data_yes;
+                document.getElementById("demoxd").innerHTML = Object.keys(gene_description[Object.keys(gene_description)[0]]["alleles"]);
+            })
+        }
+        // console.log();
+        for (let i = 0; i < 20; i++)
+        {
+            get_one_gene_dict(i, dbref);
+            document.getElementById("demoxd").innerHTML = Object.keys(gene_description[Object.keys(gene_description)[5]]["alleles"]);
+            
+            // document.getElementById("demoxd").innerHTML = Object.keys(dong);
+        }
+        // document.getElementById("demoxd").innerHTML = Object.keys(gene_description);
+        
+        function select_data()
+        {
+            get(child(dbref, "0")).then((snapshot) =>
+            {
+                let aa_gen = snapshot.val().AA;
+                let ag_gen = snapshot.val().AG;
+                let at_gen = snapshot.val().AT;
+                let cc_gen = snapshot.val().CC;
+                let cg_gen = snapshot.val().CG;
+                let ct_gen = snapshot.val().CT;
+                let gg_gen = snapshot.val().GG;
+                let gt_gen = snapshot.val().GT;
+                let tt_gen = snapshot.val().TT;
+                let description_gen = snapshot.val().description;
+                let rsid_gen = snapshot.val().rsid;
+                let topic_gen = snapshot.val().topic;
 
-				add_items_to_list(aa_gen,ag_gen,at_gen,cc_gen,cg_gen,
-							ct_gen,gg_gen,gt_gen,tt_gen,description_gen,rsid_gen,topic_gen);
-			})
-		}
+                add_items_to_list(aa_gen,ag_gen,at_gen,cc_gen,cg_gen,
+                            ct_gen,gg_gen,gt_gen,tt_gen,description_gen,rsid_gen,topic_gen);
+            })
+        }
 
-		select_data();
-
-	</script>
+        select_data();
+        </script>
 	<script src="index.js"></script>
 </body>
+
+</html>
