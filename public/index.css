@@ -26,7 +26,7 @@ img
 
 .male
 {
-    top: 25vh;
+    top: 15vh;
 	left: 60vh;
 	height: 50vh;
     width: 35vh;
@@ -40,7 +40,7 @@ img
 
 .female
 {
-    top: 25vh;
+    top: 15vh;
 	left: 100vh;
 	height: 50vh;
     width: 35vh;
@@ -71,7 +71,7 @@ img
 .results
 {
     left: 92vh;
-    top: 80vh;
+    top: 60vh;
     position: absolute;
 }
 
@@ -97,10 +97,23 @@ img
 
 .logo
 {
-    top: 6%;
+    top: 0%;
 	left: 38%;
 	height: 35vh;
     width: 35vh;
     padding: 2rem;
     position: absolute;
+}
+
+.policy
+{
+    top: 70%;
+    left: 33%;
+    height: 25vh;
+    width: 60vh;
+    padding: 2rem;
+    position: absolute;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    background: #ffffff;
 }
