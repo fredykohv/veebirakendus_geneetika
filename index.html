@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 
 <head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 	<title>Homepage</title>
+	<link rel="shortcut icon" href="/assets/propagene.ico">
 	<link rel="stylesheet" href="index.css">
 </head>
 
-<body onload="setup()">
-	<div class="male">
+<body>
+	<div class="logo" id="logo_id">
+		<img src="assets/propagene.png" alt="propagene_sign">
+	</div>
+	<div class="male" id="male_id">
 		<img src="assets/pngaaa.com-1350771.png" alt="male_sign"
 			width="200px"
 			height="200px">
 
-		<div class="file_upload_male">
+		<div class="file_upload_male" id="male_upload_id">
 			<input type="file" id="upload_male_id" name="fileupload" style="display: none" onChange="Handlechange();"/>
 			<input type="hidden" id="filename" readonly="true"/>
-			<button type="button" value="Upload DNA" id="fakeBrowse" onclick="handle_browse_click();" class="btn btn-success">Upload DNA</button>
+			<button type="button" id="fakeBrowse" onclick="handle_browse_click_male();" class="btn btn-success">Upload DNA</button>
 		</div>
 	</div>
-	<div class="female">
-		<img src="assets/pngaaa.com-1350791.png" alt="femal_sign"
+	<div class="female" id="female_id">
+		<img src="assets/pngaaa.com-1350791.png" alt="female_sign"
 			width="180px"
 			height="200px">
 
-		<div class="file_upload_female">
+		<div class="file_upload_female" id="female_upload_id">
 			<input type="file" id="upload_female_id" name="fileupload" style="display: none" onChange="Handlechange();"/>
 			<input type="hidden" id="filename" readonly="true"/>
-			<button type="button" value="Upload DNA" id="fakeBrowse" onclick="handle_browse_click();" class="btn btn-success">Upload DNA</button>
+			<button type="button" id="fakeBrowse" onclick="handle_browse_click_female();" class="btn btn-success">Upload DNA</button>
 		</div>
 	</div>
+	<div class="results">
+		<button type="button" id="results_btn" onclick="results();" class="btn btn-danger">Results</button>
+	</div>
+
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -38,5 +47,6 @@
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 	<script src="index.js"></script>
 </body>

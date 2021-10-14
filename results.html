@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<title>Homepage</title>
+	<link rel="shortcut icon" href="/assets/propagene.ico">
+	<link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+	<div class="db">
+		<ul id="list">
+
+		</ul>
+	</div>
+
+	<div class="homepage">
+		<button type="button" id="back_btn" onclick="homepage();" class="btn btn-success">Go back!</button>
+	</div>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<script type="module">
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
+		import { getDatabase, ref, set, get, child, update, remove } from 'https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js';
+
+		const firebaseConfig = {
+			apiKey: "AIzaSyBgxZQgJFrPsV7wFYz5P7uI5heLr0bjTjE",
+			authDomain: "propagene.firebaseapp.com",
+			databaseURL: "https://propagene-default-rtdb.europe-west1.firebasedatabase.app",
+			projectId: "propagene",
+			storageBucket: "propagene.appspot.com",
+			messagingSenderId: "979940081112",
+			appId: "1:979940081112:web:abbc073ff33da252d406ad"
+		};
+
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		const db = getDatabase();
+
+		function add_items_to_list(aa,ag,at,cc,cg,ct,gg,gt,tt,description,rsid,topic)
+		{
+			var ul = document.getElementById("list");
+			var header = document.createElement("h1");
+
+			var _aa = document.createElement("li");
+			var _ag = document.createElement("li");
+			var _at = document.createElement("li");
+			var _cc = document.createElement("li");
+			var _cg = document.createElement("li");
+			var _ct = document.createElement("li");
+			var _gg = document.createElement("li");
+			var _gt = document.createElement("li");
+			var _tt = document.createElement("li");
+			var _description = document.createElement("li");
+			var _rsid = document.createElement("li");
+			var _topic = document.createElement("li");
+
+			header.innerHTML = "Results";
+
+			_aa.innerHTML= "AA: " + aa;
+			_ag.innerHTML= "AG: " + ag;
+			_at.innerHTML= "AT: " + at;
+			_cc.innerHTML= "CC: " + cc;
+			_cg.innerHTML= "CG: " + cg;
+			_ct.innerHTML= "CT: " + ct;
+			_gg.innerHTML= "GG: " + gg;
+			_gt.innerHTML= "GT: " + gt;
+			_tt.innerHTML= "TT: " + tt;
+			_description.innerHTML= "Description: " + description;
+			_rsid.innerHTML= "RSID: " + rsid;
+			_topic.innerHTML= "Topic: " + topic;
+
+			ul.appendChild(header);
+			ul.appendChild(_aa);
+			ul.appendChild(_ag);
+			ul.appendChild(_at);
+			ul.appendChild(_cc);
+			ul.appendChild(_cg);
+			ul.appendChild(_ct);
+			ul.appendChild(_gg);
+			ul.appendChild(_gt);
+			ul.appendChild(_tt);
+			ul.appendChild(_description);
+			ul.appendChild(_rsid);
+			ul.appendChild(_topic);
+		}
+
+		function select_data()
+		{
+			const dbref = ref(db);
+
+			get(child(dbref, "1")).then((snapshot) =>
+			{
+				let aa_gen = snapshot.val().AA;
+				let ag_gen = snapshot.val().AG;
+				let at_gen = snapshot.val().AT;
+				let cc_gen = snapshot.val().CC;
+				let cg_gen = snapshot.val().CG;
+				let ct_gen = snapshot.val().CT;
+				let gg_gen = snapshot.val().GG;
+				let gt_gen = snapshot.val().GT;
+				let tt_gen = snapshot.val().TT;
+				let description_gen = snapshot.val().description;
+				let rsid_gen = snapshot.val().rsid;
+				let topic_gen = snapshot.val().topic;
+
+				add_items_to_list(aa_gen,ag_gen,at_gen,cc_gen,cg_gen,
+							ct_gen,gg_gen,gt_gen,tt_gen,description_gen,rsid_gen,topic_gen);
+			})
+		}
+
+		select_data();
+
+	</script>
+	<script src="index.js"></script>
+</body>
